@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BancodedadosService } from '../bancodedados.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-produtos',
+  templateUrl: './produtos.page.html',
+  styleUrls: ['./produtos.page.scss'],
 })
-export class HomePage {
+export class ProdutosPage implements OnInit {
 
   produto = {
     codigo: 0,
@@ -24,7 +24,6 @@ export class HomePage {
     public bd: BancodedadosService
   ) { }
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit() {
     this.recebendo.paramMap.subscribe(p => {
       const i = (Number(p.get('codigo')) - 1);

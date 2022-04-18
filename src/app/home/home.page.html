@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>HOME</ion-title>
+    <ion-badge [routerLink]="['/carrinho']" slot="end">
+      <ion-icon name="cart"></ion-icon>
+      <ion-label>{{ bd.carrinho.length }}</ion-label>
+    </ion-badge>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3">
+        <ion-avatar>
+          <img src={{produto.imagem}}>
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="7">
+        <ion-label class="titulo">{{produto.nome}}</ion-label><br>
+        <ion-label class="preco">R$ {{produto.preco}}</ion-label>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button shape="round" size="small" (click)="bd.incluir(produto.codigo)">
+          <ion-icon name="add-circle"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button [routerLink]="['/galeria']">Volta</ion-button><br>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
 </ion-content>
