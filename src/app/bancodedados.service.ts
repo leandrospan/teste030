@@ -55,8 +55,12 @@ export class BancodedadosService {
   }
 
   excluir(cod: number) {
-    this.produtos[cod - 1].quantidade = 0;
-    this.produtos[cod - 1].subtotal = 0;
-    this.carrinho.splice(cod - 1, 1);
+    const c = cod - 1;
+    this.produtos[c].quantidade = 0;
+    this.produtos[c].subtotal = 0;
+    //this.carrinho.splice(c, 1);
+    this.carrinho.forEach((value, index) => {
+      if (value === cod) { this.carrinho.splice(index, 1); }
+    });
   }
 }
